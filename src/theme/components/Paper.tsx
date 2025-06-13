@@ -6,6 +6,7 @@ const Paper: Components<Omit<Theme, 'components'>>['MuiPaper'] = {
   styleOverrides: {
     root: ({ theme }) => ({
       backgroundColor: theme.palette.background.paper,
+      color: theme.palette.text.primary,
     }),
   },
 };

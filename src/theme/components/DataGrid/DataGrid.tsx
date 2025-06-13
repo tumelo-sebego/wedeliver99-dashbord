@@ -40,6 +40,7 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     columnHeaders: ({ theme }) => ({
       borderBottom: 'none',
       backgroundColor: theme.palette.background.paper,
+      color: theme.palette.text.primary,
     }),
     columnHeader: () => ({
       '&:focus': {
@@ -60,7 +61,7 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       display: 'none',
     }),
     cell: ({ theme }) => ({
-      color: theme.palette.text.secondary,
+      color: theme.palette.text.primary,
       fontSize: theme.typography.body1.fontSize,
       fontWeight: theme.typography.body1.fontWeight,
       fontFamily: theme.typography.body1.fontFamily,

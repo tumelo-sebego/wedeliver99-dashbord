@@ -30,12 +30,12 @@ const OutlinedInput: Components<Omit<Theme, 'components'>>['MuiOutlinedInput'] =
       },
     }),
     notchedOutline: ({ theme }) => ({
-      borderColor: theme.palette.divider,
+      borderColor: theme.palette.primary.main,
       '&:hover': {
-        borderColor: theme.palette.primary.main,
+        borderColor: theme.palette.primary.dark,
       },
       '&:focus': {
-        borderColor: theme.palette.secondary.main,
+        borderColor: theme.palette.primary.main,
       },
     }),
     adornedEnd: ({ theme }) => ({

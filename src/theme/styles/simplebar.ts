@@ -8,14 +8,13 @@ const simplebar = (theme: Theme) => ({
           cursor: 'grab',
           border: 1,
           borderStyle: 'solid',
-          borderColor: theme.palette.common.white,
+          borderColor: theme.palette.primary.main,
           maxHeight: '100vh',
-          background: `${theme.palette.grey[300]}`,
+          background: `${theme.palette.background.paper}`,
           '&:hover': {
-            backgroundColor: theme.palette.grey[800],
+            backgroundColor: theme.palette.primary.dark,
           },
         },
-
         '&.simplebar-visible': {
           '&:before': {
             opacity: 1,

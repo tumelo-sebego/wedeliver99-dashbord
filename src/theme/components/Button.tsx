@@ -20,7 +20,7 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
       padding: theme.spacing(1.5, 2),
       borderRadius: 0,
       '&:hover': {
-        backgroundColor: 'transparent',
+        backgroundColor: theme.palette.background.paper,
       },
     }),
     outlined: ({ theme }) => ({
@@ -41,8 +41,9 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
       backgroundColor: theme.palette.primary.main,
       borderRadius: theme.shape.borderRadius * 7.5,
       boxShadow: theme.shadows[0],
-      color: theme.palette.common.white,
+      color: theme.palette.background.default,
       '&:hover': {
+        backgroundColor: theme.palette.primary.dark,
         boxShadow: theme.shadows[0],
       },
     }),
