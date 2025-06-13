@@ -11,7 +11,7 @@ export const rootPaths = {
 };
 
 export default {
-  home: `/${rootPaths.homeRoot}`,
+  home: '/', // Changed this line to point to root
   login: `/${rootPaths.authRoot}/login`,
   signup: `/${rootPaths.authRoot}/sign-up`,
   resetPassword: `/${rootPaths.authRoot}/reset-password`,

@@ -47,20 +47,14 @@ const routes: RouteObject[] = [
     ),
     children: [
       {
-        path: rootPaths.homeRoot,
+        path: '/', // Changed to root path
         element: (
           <MainLayout>
             <Suspense fallback={<PageLoader />}>
-              <Outlet />
+              <Sales /> // Directly render Sales component
             </Suspense>
           </MainLayout>
         ),
-        children: [
-          {
-            path: paths.home,
-            element: <Sales />,
-          },
-        ],
       },
       {
         path: rootPaths.authRoot,
@@ -98,6 +92,6 @@ const routes: RouteObject[] = [
   },
 ];
 
-const router = createBrowserRouter(routes, { basename: '/elegent' });
+const router = createBrowserRouter(routes);
 
 export default router;
