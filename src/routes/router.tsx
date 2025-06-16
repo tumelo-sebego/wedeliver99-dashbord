@@ -51,7 +51,7 @@ const routes: RouteObject[] = [
         element: (
           <MainLayout>
             <Suspense fallback={<PageLoader />}>
-              <Sales /> // Directly render Sales component
+              <Sales />
             </Suspense>
           </MainLayout>
         ),
