@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 
 import IconifyIcon from 'components/base/IconifyIcon';
-import logo from 'assets/logo/elegant-logo.png';
+import logo from 'assets/logo/wedeliver-logo.svg';
 import Image from 'components/base/Image';
 import navItems from 'data/nav-items';
 import NavButton from './NavButton';
