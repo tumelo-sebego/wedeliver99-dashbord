@@ -44,7 +44,7 @@ const Sidebar = (): ReactElement => {
           borderRadius: 5,
         }}
       >
-        <Image src={logo} width={1} />
+        <Image src={logo} width={153} />
       </Link>
       <Stack
         justifyContent="space-between"
