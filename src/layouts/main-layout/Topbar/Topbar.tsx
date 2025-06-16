@@ -101,7 +101,6 @@ const Topbar = ({ handleDrawerToggle }: TopbarProps): ReactElement => {
           />
         </Stack>
         <Stack direction="row" alignItems="center" gap={{ xs: 1, sm: 1.75 }}>
-          <LanguageDropdown />
           <IconButton color="inherit" centerRipple sx={{ bgcolor: 'inherit', p: 0.75 }}>
             <Badge badgeContent={1} color="primary">
               <IconifyIcon icon="carbon:notification-filled" width={24} height={24} />
