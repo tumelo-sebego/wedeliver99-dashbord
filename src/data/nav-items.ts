@@ -32,7 +32,9 @@ const navItems: NavItem[] = [
    {
     title: 'Products',
     icon: 'mdi:package-variant',
-    path: '/products'
+    path: '/products',
+    active: false,
+    collapsible: false
   },
   {
     title: 'Customers',

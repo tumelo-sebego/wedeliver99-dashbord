@@ -32,6 +32,11 @@ const Sales = lazy(async () => {
   ]).then(([moduleExports]) => moduleExports);
 });
 
+const Products = lazy(async () => import('pages/products'));
+const Orders = lazy(async () => import('pages/orders'));
+const Customers = lazy(async () => import('pages/customers'));
+const Drivers = lazy(async () => import('pages/drivers'));
+
 const Login = lazy(async () => import('pages/authentication/Login'));
 const SignUp = lazy(async () => import('pages/authentication/SignUp'));
 
@@ -52,6 +57,46 @@ const routes: RouteObject[] = [
           <MainLayout>
             <Suspense fallback={<PageLoader />}>
               <Sales />
+            </Suspense>
+          </MainLayout>
+        ),
+      },
+      {
+        path: '/products',
+        element: (
+          <MainLayout>
+            <Suspense fallback={<PageLoader />}>
+              <Products />
+            </Suspense>
+          </MainLayout>
+        ),
+      },
+      {
+        path: '/orders',
+        element: (
+          <MainLayout>
+            <Suspense fallback={<PageLoader />}>
+              <Orders />
+            </Suspense>
+          </MainLayout>
+        ),
+      },
+      {
+        path: '/customers',
+        element: (
+          <MainLayout>
+            <Suspense fallback={<PageLoader />}>
+              <Customers />
+            </Suspense>
+          </MainLayout>
+        ),
+      },
+      {
+        path: '/drivers',
+        element: (
+          <MainLayout>
+            <Suspense fallback={<PageLoader />}>
+              <Drivers />
             </Suspense>
           </MainLayout>
         ),

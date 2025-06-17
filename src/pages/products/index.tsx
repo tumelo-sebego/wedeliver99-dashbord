@@ -1,14 +1,17 @@
 import { ReactElement } from 'react';
-import { Typography, Box } from '@mui/material';
+import { Box, Typography, Container } from '@mui/material';
 
-const Products = (): ReactElement => {
+const ProductsPage = (): ReactElement => {
   return (
-    <Box sx={{ p: 3 }}>
-      <Typography variant="h4" component="h1" gutterBottom>
-        Products
-      </Typography>
-    </Box>
+    <Container maxWidth="xl">
+      <Box sx={{ py: 3 }}>
+        <Typography variant="h4" component="h1" gutterBottom>
+          Products
+        </Typography>
+        {/* Add your products content here */}
+      </Box>
+    </Container>
   );
 };
 
-export default Products;
+export default ProductsPage;
