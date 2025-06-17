@@ -89,9 +89,10 @@ const columns: GridColDef<DataRow>[] = [
 interface TopSellingProductProps {
   title?: string;
   hideAdsAndRefunds?: boolean;
+  onProductClick?: (product: any) => void;
 }
 
-const TopSellingProduct = ({ title = 'Top Selling Product', hideAdsAndRefunds = false }: TopSellingProductProps): ReactElement => {
+const TopSellingProduct = ({ title = 'Top Selling Product', hideAdsAndRefunds = false, onProductClick }: TopSellingProductProps): ReactElement => {
   const apiRef = useGridApiRef<GridApi>();
   const [search, setSearch] = useState('');
 
@@ -125,6 +126,12 @@ const TopSellingProduct = ({ title = 'Top Selling Product', hideAdsAndRefunds = 
     const searchValue = event.currentTarget.value;
     setSearch(searchValue);
     handleGridSearch(searchValue);
+  };
+
+  const handleRowClick = (product: any) => {
+    if (onProductClick) {
+      onProductClick(product);
+    }
   };
 
   return (
@@ -197,6 +204,7 @@ const TopSellingProduct = ({ title = 'Top Selling Product', hideAdsAndRefunds = 
             height: 1,
             width: 1,
           }}
+          onRowClick={(params) => handleRowClick(params.row)}
         />
       </Stack>
     </Stack>
