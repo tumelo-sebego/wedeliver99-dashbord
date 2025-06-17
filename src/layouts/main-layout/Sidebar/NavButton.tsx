@@ -35,7 +35,7 @@ const NavButton = ({ navItem, Link }: NavItemProps): ReactElement => {
         my: 1.25,
         borderRadius: 2,
         backgroundColor: pathname === navItem.path ? 'primary.main' : '',
-        color: pathname === navItem.path ? 'common.white' : 'text.secondary',
+        color: pathname === navItem.path ? '#242424' : 'text.secondary',
         '&:hover': {
           backgroundColor: pathname === navItem.path ? 'primary.main' : 'action.focus',
           opacity: 1.5,
@@ -65,7 +65,7 @@ const NavButton = ({ navItem, Link }: NavItemProps): ReactElement => {
                   key={idx}
                   sx={{
                     backgroundColor: pathname === navItem.path ? 'primary.main' : '',
-                    color: pathname === navItem.path ? 'common.white' : 'text.secondary',
+                    color: pathname === navItem.path ? '#242424' : 'text.secondary',
                     '&:hover': {
                       backgroundColor: pathname === navItem.path ? 'primary.main' : 'action.focus',
                       opacity: 1.5,
