@@ -29,182 +29,25 @@ const navItems: NavItem[] = [
       },
     ],
   },
-  {
-    title: 'Pages',
-    path: '#!',
-    icon: 'icomoon-free:drawer',
-    active: false,
-    collapsible: false,
-    sublist: [
-      {
-        title: 'Profile',
-        path: '#!',
-        active: false,
-        collapsible: false,
-        sublist: [
-          {
-            title: 'Overview',
-            path: '#!',
-            active: false,
-            collapsible: false,
-          },
-          {
-            title: 'All Projects',
-            path: '#!',
-            active: false,
-            collapsible: false,
-          },
-        ],
-      },
-      {
-        title: 'Users',
-        path: '#!',
-        active: false,
-        collapsible: false,
-        sublist: [
-          {
-            title: 'All Users',
-            path: '#!',
-            active: false,
-            collapsible: false,
-          },
-          {
-            title: 'Add user',
-            path: '#!',
-            active: false,
-            collapsible: false,
-          },
-        ],
-      },
-      {
-        title: 'Account',
-        path: '#!',
-        active: false,
-        collapsible: false,
-        sublist: [
-          {
-            title: 'Setting',
-            path: '#!',
-            active: false,
-            collapsible: false,
-          },
-          {
-            title: 'Billing',
-            path: '#!',
-            active: false,
-            collapsible: false,
-          },
-          {
-            title: 'Invoice',
-            path: '#!',
-            active: false,
-            collapsible: false,
-          },
-        ],
-      },
-      {
-        title: 'Projects',
-        path: '#!',
-        active: false,
-        collapsible: false,
-        sublist: [
-          {
-            title: 'Timeline',
-            path: '#!',
-            active: false,
-            collapsible: false,
-          },
-        ],
-      },
-    ],
+   {
+    title: 'Products',
+    icon: 'mdi:package-variant',
+    path: '/products'
   },
   {
-    title: 'Applications',
-    path: '#!',
-    icon: 'mingcute:grid-fill',
-    active: false,
-    collapsible: false,
-    sublist: [
-      {
-        title: 'Kanban',
-        path: '#!',
-        active: false,
-        collapsible: false,
-      },
-      {
-        title: 'Wizard',
-        path: '#!',
-        active: false,
-        collapsible: false,
-      },
-      {
-        title: 'Data Tables',
-        path: '#!',
-        active: false,
-        collapsible: false,
-      },
-      {
-        title: 'Schedule',
-        path: '#!',
-        active: false,
-        collapsible: false,
-      },
-    ],
+    title: 'Customers',
+    icon: 'mdi:account-group',
+    path: '/customers'
   },
   {
-    title: 'Ecommerce',
-    path: '#!',
-    icon: 'tabler:shopping-bag',
-    active: false,
-    collapsible: false,
-    sublist: [
-      {
-        title: 'Products',
-        path: '#!',
-        active: false,
-        collapsible: false,
-        sublist: [
-          {
-            title: 'All Products',
-            path: '#!',
-            active: false,
-            collapsible: false,
-          },
-          {
-            title: 'Edit Product',
-            path: '#!',
-            active: false,
-            collapsible: false,
-          },
-          {
-            title: 'New Product',
-            path: '#!',
-            active: false,
-            collapsible: false,
-          },
-        ],
-      },
-      {
-        title: 'Orders',
-        path: 'orders',
-        active: false,
-        collapsible: false,
-        sublist: [
-          {
-            title: 'Order List',
-            path: '#!',
-            active: false,
-            collapsible: false,
-          },
-          {
-            title: 'Order Detail',
-            path: '#!',
-            active: false,
-            collapsible: false,
-          },
-        ],
-      },
-    ],
+    title: 'Orders',
+    icon: 'mdi:clipboard-text',
+    path: '/orders'
+  },
+  {
+    title: 'Drivers',
+    icon: 'mdi:truck-delivery',
+    path: '/drivers'
   },
   {
     title: 'Authentication',
@@ -239,27 +82,7 @@ const navItems: NavItem[] = [
       },
     ],
   },
-  {
-    title: 'Notification',
-    path: '#!',
-    icon: 'zondicons:notifications',
-    active: false,
-    collapsible: false,
-  },
-  {
-    title: 'Calendar',
-    path: '#!',
-    icon: 'ph:calendar',
-    active: false,
-    collapsible: false,
-  },
-  {
-    title: 'Message',
-    path: '#!',
-    icon: 'ph:chat-circle-dots-fill',
-    active: false,
-    collapsible: false,
-  },
+  
 ];
 
 export default navItems;
