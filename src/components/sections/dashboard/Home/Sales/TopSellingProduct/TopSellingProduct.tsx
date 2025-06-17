@@ -86,7 +86,12 @@ const columns: GridColDef<DataRow>[] = [
   },
 ];
 
-const TopSellingProduct = (): ReactElement => {
+interface TopSellingProductProps {
+  title?: string;
+  hideAdsAndRefunds?: boolean;
+}
+
+const TopSellingProduct = ({ title = 'Top Selling Product', hideAdsAndRefunds = false }: TopSellingProductProps): ReactElement => {
   const apiRef = useGridApiRef<GridApi>();
   const [search, setSearch] = useState('');
 
@@ -94,6 +99,7 @@ const TopSellingProduct = (): ReactElement => {
     () =>
       columns
         .filter((column) => column.field !== 'id')
+        .filter((column) => !hideAdsAndRefunds || (column.field !== 'adsSpent' && column.field !== 'refunds'))
         .map((column) => {
           if (column.field === 'refunds') {
             return {
@@ -104,7 +110,7 @@ const TopSellingProduct = (): ReactElement => {
           }
           return column;
         }),
-    [columns],
+    [columns, hideAdsAndRefunds],
   );
 
   const handleGridSearch = useMemo(() => {
@@ -137,7 +143,7 @@ const TopSellingProduct = (): ReactElement => {
         gap={3.75}
       >
         <Typography variant="h5" color="text.primary">
-          Top Selling Product
+          {title}
         </Typography>
         <TextField
           variant="filled"
