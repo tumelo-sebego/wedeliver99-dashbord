@@ -1,19 +1,11 @@
 import { ChangeEvent, ReactElement, useMemo, useState } from 'react';
 import {
   Avatar,
-  Box,
-  Card,
   Divider,
   InputAdornment,
   LinearProgress,
   Link,
   Stack,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
   TextField,
   Tooltip,
   Typography,
@@ -94,15 +86,7 @@ const columns: GridColDef<DataRow>[] = [
   },
 ];
 
-interface TopSellingProductProps {
-  title?: string;
-  hideAdsAndRefunds?: boolean;
-}
-
-const TopSellingProduct = ({
-  title = 'Top Selling Products',
-  hideAdsAndRefunds = false,
-}: TopSellingProductProps): ReactElement => {
+const TopSellingProduct = (): ReactElement => {
   const apiRef = useGridApiRef<GridApi>();
   const [search, setSearch] = useState('');
 
@@ -138,10 +122,22 @@ const TopSellingProduct = ({
   };
 
   return (
-    <Card>
-      <Stack p={3} gap={3}>
-        <Typography variant="h6" component="h2">
-          {title}
+    <Stack
+      bgcolor="background.paper"
+      borderRadius={5}
+      width={1}
+      boxShadow={(theme) => theme.shadows[4]}
+      height={1}
+    >
+      <Stack
+        direction={{ sm: 'row' }}
+        justifyContent="space-between"
+        alignItems="center"
+        padding={3.75}
+        gap={3.75}
+      >
+        <Typography variant="h5" color="text.primary">
+          Top Selling Product
         </Typography>
         <TextField
           variant="filled"
@@ -158,46 +154,46 @@ const TopSellingProduct = ({
             ),
           }}
         />
-        <Divider />
-        <Stack height={1}>
-          <DataGrid
-            apiRef={apiRef}
-            columns={visibleColumns}
-            rows={rows}
-            getRowHeight={() => 70}
-            hideFooterSelectedRowCount
-            disableColumnResize
-            disableColumnSelector
-            disableRowSelectionOnClick
-            rowSelection={false}
-            initialState={{
-              pagination: { paginationModel: { pageSize: 5, page: 0 } },
-              columns: {
-                columnVisibilityModel: {
-                  id: false,
-                },
-              },
-            }}
-            pageSizeOptions={[5]}
-            onResize={() => {
-              apiRef.current.autosizeColumns({
-                includeOutliers: true,
-                expand: true,
-              });
-            }}
-            slots={{
-              loadingOverlay: LinearProgress as GridSlots['loadingOverlay'],
-              pagination: CustomPagination,
-              noRowsOverlay: () => <section>No rows available</section>,
-            }}
-            sx={{
-              height: 1,
-              width: 1,
-            }}
-          />
-        </Stack>
       </Stack>
-    </Card>
+      <Divider />
+      <Stack height={1}>
+        <DataGrid
+          apiRef={apiRef}
+          columns={visibleColumns}
+          rows={rows}
+          getRowHeight={() => 70}
+          hideFooterSelectedRowCount
+          disableColumnResize
+          disableColumnSelector
+          disableRowSelectionOnClick
+          rowSelection={false}
+          initialState={{
+            pagination: { paginationModel: { pageSize: 5, page: 0 } },
+            columns: {
+              columnVisibilityModel: {
+                id: false,
+              },
+            },
+          }}
+          pageSizeOptions={[5]}
+          onResize={() => {
+            apiRef.current.autosizeColumns({
+              includeOutliers: true,
+              expand: true,
+            });
+          }}
+          slots={{
+            loadingOverlay: LinearProgress as GridSlots['loadingOverlay'],
+            pagination: CustomPagination,
+            noRowsOverlay: () => <section>No rows available</section>,
+          }}
+          sx={{
+            height: 1,
+            width: 1,
+          }}
+        />
+      </Stack>
+    </Stack>
   );
 };
 

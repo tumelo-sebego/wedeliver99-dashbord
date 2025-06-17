@@ -1,28 +1,27 @@
 import { ReactElement } from 'react';
 import Grid from '@mui/material/Unstable_Grid2';
 import TopSellingProduct from 'components/sections/dashboard/Home/Sales/TopSellingProduct/TopSellingProduct';
-import { drawerWidth } from 'layouts/main-layout';
+import { Box } from '@mui/material';
 
 const ProductsPage = (): ReactElement => {
   return (
-    <Grid
-      container
-      component="main"
-      columns={12}
-      spacing={3.75}
-      flexGrow={1}
-      pt={4.375}
-      pr={1.875}
-      pb={0}
+    <Box
       sx={{
-        width: { md: `calc(100% - ${drawerWidth}px)` },
-        pl: { xs: 3.75, lg: 0 },
+        flexGrow: 1,
+        width: '100%',
+        height: '100%',
+        p: 3
       }}
     >
-      <Grid xs={12}>
-        <TopSellingProduct title="Products" hideAdsAndRefunds={true} />
+      <Grid
+        container
+        spacing={3.75}
+      >
+        <Grid xs={12}>
+          <TopSellingProduct title="Products" hideAdsAndRefunds={true} />
+        </Grid>
       </Grid>
-    </Grid>
+    </Box>
   );
 };
 
