@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import { DataGrid, GridApi, GridColDef, GridSlots, useGridApiRef } from '@mui/x-data-grid';
 import IconifyIcon from 'components/base/IconifyIcon';
-import CustomPagination from '../../components/CustomPagination';
+import CustomPagination from 'components/sections/dashboard/components/CustomPagination';
 
 interface CustomerData {
   id: number;
@@ -63,7 +63,18 @@ const CustomersList = (): ReactElement => {
   const apiRef = useGridApiRef<GridApi>();
   const [search, setSearch] = useState('');
 
-  // ... similar search handling logic as TopSellingProduct
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+    debouncedSearch(event.target.value);
+  };
+
+  const debouncedSearch = useMemo(
+    () =>
+      debounce((searchValue: string) => {
+        apiRef.current.setQuickFilterValues([searchValue]);
+      }, 500),
+    [apiRef]
+  );
 
   return (
     <Stack
