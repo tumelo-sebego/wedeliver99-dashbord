@@ -1,14 +1,25 @@
 import { ReactElement } from 'react';
-import { Typography, Box } from '@mui/material';
+import { Box } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2';
+import CustomersList from 'components/sections/dashboard/Customers/CustomersList/CustomersList';
 
-const Customers = (): ReactElement => {
+const CustomersPage = (): ReactElement => {
   return (
-    <Box sx={{ p: 3 }}>
-      <Typography variant="h4" component="h1" gutterBottom>
-        Customers
-      </Typography>
+    <Box
+      sx={{
+        flexGrow: 1,
+        width: '100%',
+        height: '100%',
+        p: 3
+      }}
+    >
+      <Grid container spacing={3.75}>
+        <Grid xs={12}>
+          <CustomersList />
+        </Grid>
+      </Grid>
     </Box>
   );
 };
 
-export default Customers;
+export default CustomersPage;
