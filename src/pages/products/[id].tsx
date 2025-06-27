@@ -19,9 +19,9 @@ const ProductDetailsPage = (): ReactElement => {
         ...product,
         description: "Product description here", // Add real description in your data
         prices: [
-          { merchant: "Shoprite", price: product.price },
-          { merchant: "Boxer", price: "R" + (parseFloat(product.price.substring(1)) * 0.95).toFixed(2) },
-          { merchant: "Pick 'n Pay", price: "R" + (parseFloat(product.price.substring(1)) * 1.05).toFixed(2) }
+          { merchant: "Shoprite", price: `R${product.price.toFixed(2)}` },
+          { merchant: "Boxer", price: `R${(product.price * 0.95).toFixed(2)}` },
+          { merchant: "Pick 'n Pay", price: `R${(product.price * 1.05).toFixed(2)}` }
         ],
         unit: "pieces", // Add real unit in your data
         category: "Groceries" // Add real category in your data

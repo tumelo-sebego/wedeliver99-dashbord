@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
-import { Box, Card, Typography, Stack, Chip, Divider } from '@mui/material';
+import { Box, Card, Typography, Stack, Chip, useMediaQuery, Divider } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import Image from 'components/base/Image';
 
 interface MerchantPrice {
@@ -19,6 +20,9 @@ interface ProductDetailsProps {
 }
 
 const ProductDetails = ({ product }: ProductDetailsProps): ReactElement => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   if (!product) {
     return (
       <Card sx={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -31,24 +35,33 @@ const ProductDetails = ({ product }: ProductDetailsProps): ReactElement => {
 
   return (
     <Card sx={{ height: '100%' }}>
-      <Stack spacing={3} p={3}>
-        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
-          <Box
-            sx={{
-              width: 300,
-              height: 300,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              bgcolor: 'background.default',
-              borderRadius: 2,
-            }}
-          >
-            <Image src={product.image} width={250} height={250} />
-          </Box>
+      <Stack
+        direction={isMobile ? 'column' : 'row'}
+        spacing={4}
+        p={3}
+        alignItems={isMobile ? 'center' : 'flex-start'}
+        justifyContent="flex-start"
+        height="100%"
+      >
+        {/* Product Image */}
+        <Box
+          sx={{
+            width: isMobile ? 250 : 300,
+            height: isMobile ? 250 : 300,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            bgcolor: 'background.default',
+            borderRadius: 2,
+            mb: isMobile ? 2 : 0,
+            flexShrink: 0,
+          }}
+        >
+          <Image src={product.image} width={isMobile ? 200 : 250} height={isMobile ? 200 : 250} />
         </Box>
 
-        <Stack spacing={2}>
+        {/* Product Details */}
+        <Stack spacing={2} flex={1} width="100%">
           <Typography variant="h5" component="h2">
             {product.name}
           </Typography>
@@ -87,10 +100,10 @@ const ProductDetails = ({ product }: ProductDetailsProps): ReactElement => {
                   direction="row"
                   justifyContent="space-between"
                   alignItems="center"
-                  sx={{ 
+                  sx={{
                     p: 1.5,
                     bgcolor: 'background.default',
-                    borderRadius: 1
+                    borderRadius: 1,
                   }}
                 >
                   <Typography variant="body2">{price.merchant}</Typography>
