@@ -25,8 +25,17 @@ const ProductDetails = ({ product }: ProductDetailsProps): ReactElement => {
 
   if (!product) {
     return (
-      <Card sx={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <Typography variant="body1" color="text.secondary">
+      <Card
+        sx={{
+          height: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: '#fff', // Set text color to white
+          backgroundColor: theme.palette.grey[900], // Optional: dark background for contrast
+        }}
+      >
+        <Typography variant="body1" color="inherit">
           Select a product to view details
         </Typography>
       </Card>
@@ -34,7 +43,13 @@ const ProductDetails = ({ product }: ProductDetailsProps): ReactElement => {
   }
 
   return (
-    <Card sx={{ height: '100%' }}>
+    <Card
+      sx={{
+        height: '100%',
+        color: '#fff', // Set text color to white
+        backgroundColor: theme.palette.grey[900], // Optional: dark background for contrast
+      }}
+    >
       <Stack
         direction={isMobile ? 'column' : 'row'}
         spacing={4}
@@ -62,35 +77,35 @@ const ProductDetails = ({ product }: ProductDetailsProps): ReactElement => {
 
         {/* Product Details */}
         <Stack spacing={2} flex={1} width="100%">
-          <Typography variant="h5" component="h2">
+          <Typography variant="h5" component="h2" color="inherit">
             {product.name}
           </Typography>
 
           <Box>
-            <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+            <Typography variant="subtitle2" color="inherit" gutterBottom>
               Description
             </Typography>
-            <Typography variant="body1">
+            <Typography variant="body1" color="inherit">
               {product.description || 'No description available'}
             </Typography>
           </Box>
 
           <Box>
-            <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+            <Typography variant="subtitle2" color="inherit" gutterBottom>
               Category
             </Typography>
-            <Chip label={product.category} color="primary" variant="outlined" />
+            <Chip label={product.category} color="primary" variant="outlined" sx={{ color: '#fff', borderColor: '#fff' }} />
           </Box>
 
           <Box>
-            <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+            <Typography variant="subtitle2" color="inherit" gutterBottom>
               Unit
             </Typography>
-            <Typography variant="body1">{product.unit}</Typography>
+            <Typography variant="body1" color="inherit">{product.unit}</Typography>
           </Box>
 
           <Box>
-            <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+            <Typography variant="subtitle2" color="inherit" gutterBottom>
               Prices
             </Typography>
             <Stack spacing={1}>
@@ -106,8 +121,8 @@ const ProductDetails = ({ product }: ProductDetailsProps): ReactElement => {
                     borderRadius: 1,
                   }}
                 >
-                  <Typography variant="body2">{price.merchant}</Typography>
-                  <Typography variant="body2" fontWeight="bold">
+                  <Typography variant="body2" color="inherit">{price.merchant}</Typography>
+                  <Typography variant="body2" fontWeight="bold" color="inherit">
                     {price.price}
                   </Typography>
                 </Stack>
