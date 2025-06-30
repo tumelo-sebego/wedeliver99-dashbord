@@ -32,7 +32,7 @@ const Sales = lazy(async () => {
   ]).then(([moduleExports]) => moduleExports);
 });
 
-const ProductDetailsPage = lazy(async () => import('pages/products/[id]'));
+// const ProductDetailsPage = lazy(async () => import('pages/products/[id]'));
 const Products = lazy(async () => import('pages/products'));
 const Orders = lazy(async () => import('pages/orders'));
 const Customers = lazy(async () => import('pages/customers'));
@@ -102,16 +102,16 @@ const routes: RouteObject[] = [
           </MainLayout>
         ),
       },
-      {
-        path: '/products/:id',
-        element: (
-          <MainLayout>
-            <Suspense fallback={<PageLoader />}>
-              <ProductDetailsPage />
-            </Suspense>
-          </MainLayout>
-        ),
-      },
+      // {
+      //   path: '/products?=id',
+      //   element: (
+      //     <MainLayout>
+      //       <Suspense fallback={<PageLoader />}>
+      //         <ProductDetailsPage />
+      //       </Suspense>
+      //     </MainLayout>
+      //   ),
+      // },
       {
         path: rootPaths.authRoot,
         element: (

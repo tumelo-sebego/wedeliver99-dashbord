@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import { Box, Card, Typography, Stack, Chip, useMediaQuery, Divider } from '@mui/material';
+import { Box, Card, Typography, Stack, Chip, useMediaQuery, Divider, Avatar } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Image from 'components/base/Image';
 
@@ -72,7 +72,7 @@ const ProductDetails = ({ product }: ProductDetailsProps): ReactElement => {
             flexShrink: 0,
           }}
         >
-          <Image src={product.image} width={isMobile ? 200 : 250} height={isMobile ? 200 : 250} />
+          <Avatar src={product.image} sx={{ objectFit: 'cover' }} />
         </Box>
 
         {/* Product Details */}
