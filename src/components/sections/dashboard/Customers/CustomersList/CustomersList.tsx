@@ -1,6 +1,7 @@
 import { ChangeEvent, ReactElement, useMemo, useState } from 'react';
 import {
   Avatar,
+  Button,
   Divider,
   InputAdornment,
   LinearProgress,
@@ -97,19 +98,9 @@ const CustomersList = (): ReactElement => {
         <Typography variant="h5" color="text.primary">
           Customers
         </Typography>
-        <TextField
-          variant="filled"
-          placeholder="Search customers..."
-          onChange={handleChange}
-          value={search}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconifyIcon icon="mdi:search" />
-              </InputAdornment>
-            ),
-          }}
-        />
+        <Button variant="contained" color="primary">
+          Add Customer
+        </Button>
       </Stack>
       <Divider />
       <Stack height={1}>
