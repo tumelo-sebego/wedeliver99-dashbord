@@ -1,5 +1,6 @@
 import { ReactElement, useMemo, useState } from 'react';
 import {
+  Button,
   Divider,
   LinearProgress,
   Link,
@@ -15,6 +16,7 @@ import { DataRow, rows } from 'data/products';
 import CustomPagination from './CustomPagination';
 import { currencyFormat } from 'helpers/format-functions';
 import ProductImage from 'theme/components/ProductImage';
+import { useLocation } from 'react-router-dom';
 
 const columns: GridColDef<DataRow>[] = [
   {
@@ -95,6 +97,10 @@ interface TopSellingProductProps {
 const TopSellingProduct = ({ title = 'Top Selling Product', hideAdsAndRefunds = false, onProductClick }: TopSellingProductProps): ReactElement => {
   const apiRef = useGridApiRef<GridApi>();
   const [search, setSearch] = useState('');
+  const location = useLocation();
+
+  // Determine if we are on the products page
+  const isProductsPage = location.pathname === '/products';
 
   const visibleColumns = useMemo(
     () =>
@@ -138,6 +144,11 @@ const TopSellingProduct = ({ title = 'Top Selling Product', hideAdsAndRefunds = 
         <Typography variant="h5" color="text.primary">
           {title}
         </Typography>
+        {isProductsPage && (
+          <Button variant="contained" color="primary">
+            Add Product
+          </Button>
+        )}
       </Stack>
       <Divider />
       <Stack height={1}>
