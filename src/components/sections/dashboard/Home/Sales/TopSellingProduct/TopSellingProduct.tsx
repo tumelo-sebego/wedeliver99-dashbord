@@ -1,7 +1,6 @@
-import { ChangeEvent, ReactElement, useMemo, useState } from 'react';
+import { ReactElement, useMemo, useState } from 'react';
 import {
   Divider,
-  InputAdornment,
   LinearProgress,
   Link,
   Stack,
@@ -32,7 +31,7 @@ const columns: GridColDef<DataRow>[] = [
     },
     renderCell: (params: any) => {
       return (
-        <Stack direction="row" spacing={1.5} alignItems="center" component={Link} href="#!">
+        <Stack direction="row" spacing={1.5} alignItems="center" component={Link} href="#!" sx={{ cursor: 'pointer' }}>
           <Tooltip title={params.row.product.title} placement="top" arrow>
             {/* <Avatar src={params.row.product.avatar} sx={{ objectFit: 'cover' }} /> */}
             <ProductImage src={params.row.product.avatar}/>
@@ -115,20 +114,6 @@ const TopSellingProduct = ({ title = 'Top Selling Product', hideAdsAndRefunds = 
     [columns, hideAdsAndRefunds],
   );
 
-  const handleGridSearch = useMemo(() => {
-    return debounce((searchValue) => {
-      apiRef.current.setQuickFilterValues(
-        searchValue.split(' ').filter((word: any) => word !== ''),
-      );
-    }, 250);
-  }, [apiRef]);
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const searchValue = event.currentTarget.value;
-    setSearch(searchValue);
-    handleGridSearch(searchValue);
-  };
-
   const handleRowClick = (product: any) => {
     if (onProductClick) {
       onProductClick(product);
@@ -153,21 +138,6 @@ const TopSellingProduct = ({ title = 'Top Selling Product', hideAdsAndRefunds = 
         <Typography variant="h5" color="text.primary">
           {title}
         </Typography>
-        <TextField
-          variant="filled"
-          placeholder="Search..."
-          id="search-input"
-          name="table-search-input"
-          onChange={handleChange}
-          value={search}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end" sx={{ width: 24, height: 24 }}>
-                <IconifyIcon icon="mdi:search" width={1} height={1} />
-              </InputAdornment>
-            ),
-          }}
-        />
       </Stack>
       <Divider />
       <Stack height={1}>
