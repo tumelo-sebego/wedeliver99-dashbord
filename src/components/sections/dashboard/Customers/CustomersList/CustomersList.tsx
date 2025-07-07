@@ -10,6 +10,7 @@ import {
   debounce,
 } from '@mui/material';
 import { DataGrid, GridApi, GridColDef, GridSlots, useGridApiRef } from '@mui/x-data-grid';
+import { useNavigate } from 'react-router-dom';
 import IconifyIcon from 'components/base/IconifyIcon';
 import CustomPagination from 'components/sections/dashboard/components/CustomPagination';
 
@@ -59,9 +60,49 @@ const columns: GridColDef<CustomerData>[] = [
   },
 ];
 
+const customerRows: CustomerData[] = [
+  {
+    id: 1,
+    name: 'Alice Johnson',
+    email: 'alice.johnson@example.com',
+    phone: '+27 82 123 4567',
+    orders: 12,
+    lastOrder: '2024-06-15',
+    status: 'active',
+  },
+  {
+    id: 2,
+    name: 'Bob Smith',
+    email: 'bob.smith@example.com',
+    phone: '+27 83 234 5678',
+    orders: 5,
+    lastOrder: '2024-06-10',
+    status: 'inactive',
+  },
+  {
+    id: 3,
+    name: 'Carol Lee',
+    email: 'carol.lee@example.com',
+    phone: '+27 84 345 6789',
+    orders: 8,
+    lastOrder: '2024-06-12',
+    status: 'active',
+  },
+  {
+    id: 4,
+    name: 'David Brown',
+    email: 'david.brown@example.com',
+    phone: '+27 85 456 7890',
+    orders: 3,
+    lastOrder: '2024-06-01',
+    status: 'inactive',
+  },
+];
+
 const CustomersList = (): ReactElement => {
   const apiRef = useGridApiRef<GridApi>();
   const [search, setSearch] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
@@ -113,7 +154,7 @@ const CustomersList = (): ReactElement => {
         <DataGrid
           apiRef={apiRef}
           columns={columns}
-          rows={[]} // Add your customer data here
+          rows={customerRows} // Use the mock data here
           getRowHeight={() => 70}
           hideFooterSelectedRowCount
           disableColumnResize
@@ -138,6 +179,7 @@ const CustomersList = (): ReactElement => {
             height: 1,
             width: 1,
           }}
+          onRowClick={(params) => navigate(`/customers?id=${params.row.id}`)}
         />
       </Stack>
     </Stack>
