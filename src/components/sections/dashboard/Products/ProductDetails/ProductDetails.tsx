@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
 import ProductImage from 'theme/components/ProductImage';
 import { Box, Card, Typography, Stack, Chip, useMediaQuery, Divider } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
@@ -23,6 +23,7 @@ interface ProductDetailsProps {
 const ProductDetails = ({ product }: ProductDetailsProps): ReactElement => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const [currentIdx, setCurrentIdx] = useState(0);
 
   if (!product) {
     return (
@@ -32,8 +33,8 @@ const ProductDetails = ({ product }: ProductDetailsProps): ReactElement => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: '#fff', // Set text color to white
-          backgroundColor: theme.palette.grey[900], // Optional: dark background for contrast
+          color: '#fff',
+          backgroundColor: theme.palette.grey[900],
         }}
       >
         <Typography variant="body1" color="inherit">
@@ -47,8 +48,8 @@ const ProductDetails = ({ product }: ProductDetailsProps): ReactElement => {
     <Card
       sx={{
         height: '100%',
-        color: '#fff', // Set text color to white
-        backgroundColor: theme.palette.grey[900], // Optional: dark background for contrast
+        color: '#fff',
+        backgroundColor: theme.palette.grey[900],
       }}
     >
       <Stack
@@ -71,17 +72,17 @@ const ProductDetails = ({ product }: ProductDetailsProps): ReactElement => {
             borderRadius: 2,
             mb: isMobile ? 2 : 0,
             flexShrink: 0,
-            overflow: 'hidden', // Ensures rounded corners clip the image
-            p: 0, // Remove any padding
+            overflow: 'hidden',
+            p: 0,
           }}
         >
           <ProductImage src={product.image} alt={product.name} style={{
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      borderRadius: 8,
-      display: 'block',
-    }}/>
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            borderRadius: 8,
+            display: 'block',
+          }}/>
         </Box>
 
         {/* Product Details */}
@@ -118,24 +119,40 @@ const ProductDetails = ({ product }: ProductDetailsProps): ReactElement => {
               Prices
             </Typography>
             <Stack spacing={1}>
-              {product.prices.map((price) => (
-                <Stack
-                  key={price.merchant}
-                  direction="row"
-                  justifyContent="space-between"
-                  alignItems="center"
-                  sx={{
-                    p: 1.5,
-                    bgcolor: 'background.default',
-                    borderRadius: 1,
-                  }}
-                >
-                  <Typography variant="body2" color="inherit">{price.merchant}</Typography>
-                  <Typography variant="body2" fontWeight="bold" color="inherit">
-                    {price.price}
-                  </Typography>
-                </Stack>
-              ))}
+              {product.prices.map((price, idx) => {
+                const isCurrent = idx === currentIdx;
+                return (
+                  <Stack
+                    key={price.merchant}
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    sx={{
+                      p: 1.5,
+                      bgcolor: isCurrent ? '#fed21f' : 'background.default',
+                      borderRadius: 1,
+                      cursor: 'pointer',
+                      transition: 'background 0.2s',
+                    }}
+                    onClick={() => setCurrentIdx(idx)}
+                  >
+                    <Typography
+                      variant="body2"
+                      color={isCurrent ? '#191b1c' : 'inherit'}
+                      fontWeight={isCurrent ? 'bold' : 'normal'}
+                    >
+                      {price.merchant}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      fontWeight="bold"
+                      color={isCurrent ? '#191b1c' : 'inherit'}
+                    >
+                      {price.price}
+                    </Typography>
+                  </Stack>
+                );
+              })}
             </Stack>
           </Box>
         </Stack>
