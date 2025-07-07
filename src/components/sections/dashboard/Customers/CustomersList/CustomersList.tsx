@@ -13,6 +13,7 @@ import { DataGrid, GridApi, GridColDef, GridSlots, useGridApiRef } from '@mui/x-
 import { useNavigate } from 'react-router-dom';
 import IconifyIcon from 'components/base/IconifyIcon';
 import CustomPagination from 'components/sections/dashboard/components/CustomPagination';
+import { customerList } from 'data/customers-list'; // <-- import your customer data
 
 interface CustomerData {
   id: number;
@@ -57,45 +58,6 @@ const columns: GridColDef<CustomerData>[] = [
         {params.value}
       </Typography>
     ),
-  },
-];
-
-const customerRows: CustomerData[] = [
-  {
-    id: 1,
-    name: 'Alice Johnson',
-    email: 'alice.johnson@example.com',
-    phone: '+27 82 123 4567',
-    orders: 12,
-    lastOrder: '2024-06-15',
-    status: 'active',
-  },
-  {
-    id: 2,
-    name: 'Bob Smith',
-    email: 'bob.smith@example.com',
-    phone: '+27 83 234 5678',
-    orders: 5,
-    lastOrder: '2024-06-10',
-    status: 'inactive',
-  },
-  {
-    id: 3,
-    name: 'Carol Lee',
-    email: 'carol.lee@example.com',
-    phone: '+27 84 345 6789',
-    orders: 8,
-    lastOrder: '2024-06-12',
-    status: 'active',
-  },
-  {
-    id: 4,
-    name: 'David Brown',
-    email: 'david.brown@example.com',
-    phone: '+27 85 456 7890',
-    orders: 3,
-    lastOrder: '2024-06-01',
-    status: 'inactive',
   },
 ];
 
@@ -154,7 +116,7 @@ const CustomersList = (): ReactElement => {
         <DataGrid
           apiRef={apiRef}
           columns={columns}
-          rows={customerRows} // Use the mock data here
+          rows={customerList} // <-- use imported customerList here
           getRowHeight={() => 70}
           hideFooterSelectedRowCount
           disableColumnResize
