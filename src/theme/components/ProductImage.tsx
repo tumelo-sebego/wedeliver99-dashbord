@@ -1,14 +1,27 @@
-import { Avatar } from '@mui/material';
+import Image from 'components/base/Image';
 
-const productImageSx = {
+const productImageSx: React.CSSProperties = {
   width: 56,
-  height: 40,
+  height: 56,
   objectFit: 'cover',
-  borderRadius: 2,
+  borderRadius: 8,
   border: 'none',
   display: 'block',
 };
 
-export default function ProductImage({ src, alt = '', ...props }) {
-  return <Avatar src={src} alt={alt} sx={productImageSx} {...props} />;
+type ProductImageProps = {
+  src: string;
+  alt?: string;
+  [key: string]: any;
+};
+
+export default function ProductImage({ src, alt = '', ...props }: ProductImageProps) {
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      style={productImageSx}
+      {...props}
+    />
+  );
 }

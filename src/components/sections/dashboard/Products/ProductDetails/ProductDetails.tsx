@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
-import { Box, Card, Typography, Stack, Chip, useMediaQuery, Divider, Avatar } from '@mui/material';
+import ProductImage from 'theme/components/ProductImage';
+import { Box, Card, Typography, Stack, Chip, useMediaQuery, Divider } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Image from 'components/base/Image';
 
@@ -70,9 +71,17 @@ const ProductDetails = ({ product }: ProductDetailsProps): ReactElement => {
             borderRadius: 2,
             mb: isMobile ? 2 : 0,
             flexShrink: 0,
+            overflow: 'hidden', // Ensures rounded corners clip the image
+            p: 0, // Remove any padding
           }}
         >
-          <Avatar src={product.image} sx={{ objectFit: 'cover' }} />
+          <ProductImage src={product.image} alt={product.name} style={{
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      borderRadius: 8,
+      display: 'block',
+    }}/>
         </Box>
 
         {/* Product Details */}

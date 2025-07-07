@@ -1,6 +1,5 @@
 import { ChangeEvent, ReactElement, useMemo, useState } from 'react';
 import {
-  Avatar,
   Divider,
   InputAdornment,
   LinearProgress,
@@ -16,6 +15,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import { DataRow, rows } from 'data/products';
 import CustomPagination from './CustomPagination';
 import { currencyFormat } from 'helpers/format-functions';
+import ProductImage from 'theme/components/ProductImage';
 
 const columns: GridColDef<DataRow>[] = [
   {
@@ -34,7 +34,8 @@ const columns: GridColDef<DataRow>[] = [
       return (
         <Stack direction="row" spacing={1.5} alignItems="center" component={Link} href="#!">
           <Tooltip title={params.row.product.title} placement="top" arrow>
-            <Avatar src={params.row.product.avatar} sx={{ objectFit: 'cover' }} />
+            {/* <Avatar src={params.row.product.avatar} sx={{ objectFit: 'cover' }} /> */}
+            <ProductImage src={params.row.product.avatar}/>
           </Tooltip>
           <Stack direction="column" spacing={0.5} justifyContent="space-between">
             <Typography variant="body1" color="text.primary">
