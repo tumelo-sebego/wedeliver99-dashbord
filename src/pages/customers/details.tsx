@@ -22,6 +22,7 @@ const CustomerDetailsPage = () => {
         bgcolor: 'background.paper',
       }}
     >
+      {/* Customer Details Section */}
       <Stack direction={{ xs: 'column', sm: 'row' }} spacing={4} alignItems="flex-start">
         {/* Customer Avatar */}
         <Avatar
@@ -77,11 +78,11 @@ const CustomerDetailsPage = () => {
 
       <Divider sx={{ my: 4 }} />
 
-      {/* Product Orders */}
-      <Typography variant="h6" gutterBottom>
-        Product Orders
-      </Typography>
+      {/* Product Orders Section - now directly below the customer details */}
       <Box sx={{ overflowX: 'auto' }}>
+        <Typography variant="h6" gutterBottom>
+          Product Orders
+        </Typography>
         <Table>
           <TableHead>
             <TableRow>

@@ -1,4 +1,5 @@
 export interface OrderData {
+  orderId: string; // <-- new field
   customerId: number;
   image: string;
   name: string;
@@ -18,6 +19,7 @@ import product4 from 'assets/top-selling-products/watch.jpg';
 export const orderList: OrderData[] = [
   // Orders for Alice Johnson (id: 1)
   {
+    orderId: '12453',
     customerId: 1,
     image: product1,
     name: 'Milk',
@@ -28,6 +30,7 @@ export const orderList: OrderData[] = [
     totalPrice: 'R40.00',
   },
   {
+    orderId: '12454',
     customerId: 1,
     image: product2,
     name: 'Bread',
@@ -38,6 +41,7 @@ export const orderList: OrderData[] = [
     totalPrice: 'R45.00',
   },
   {
+    orderId: '12455',
     customerId: 1,
     image: product3,
     name: 'Eggs',
@@ -48,6 +52,7 @@ export const orderList: OrderData[] = [
     totalPrice: 'R30.00',
   },
   {
+    orderId: '12456',
     customerId: 1,
     image: product4,
     name: 'Butter',
@@ -60,6 +65,7 @@ export const orderList: OrderData[] = [
 
   // Orders for Bob Smith (id: 2)
   {
+    orderId: '22453',
     customerId: 2,
     image: product2,
     name: 'Bread',
@@ -70,6 +76,7 @@ export const orderList: OrderData[] = [
     totalPrice: 'R15.00',
   },
   {
+    orderId: '22454',
     customerId: 2,
     image: product3,
     name: 'Eggs',
@@ -80,6 +87,7 @@ export const orderList: OrderData[] = [
     totalPrice: 'R60.00',
   },
   {
+    orderId: '22455',
     customerId: 2,
     image: product1,
     name: 'Milk',
@@ -90,6 +98,7 @@ export const orderList: OrderData[] = [
     totalPrice: 'R20.00',
   },
   {
+    orderId: '22456',
     customerId: 2,
     image: product4,
     name: 'Butter',
@@ -102,6 +111,7 @@ export const orderList: OrderData[] = [
 
   // Orders for Carol Lee (id: 3)
   {
+    orderId: '32453',
     customerId: 3,
     image: product3,
     name: 'Eggs',
@@ -112,6 +122,7 @@ export const orderList: OrderData[] = [
     totalPrice: 'R30.00',
   },
   {
+    orderId: '32454',
     customerId: 3,
     image: product1,
     name: 'Milk',
@@ -122,6 +133,7 @@ export const orderList: OrderData[] = [
     totalPrice: 'R40.00',
   },
   {
+    orderId: '32455',
     customerId: 3,
     image: product2,
     name: 'Bread',
@@ -132,6 +144,7 @@ export const orderList: OrderData[] = [
     totalPrice: 'R30.00',
   },
   {
+    orderId: '32456',
     customerId: 3,
     image: product4,
     name: 'Butter',
@@ -144,6 +157,7 @@ export const orderList: OrderData[] = [
 
   // Orders for David Brown (id: 4)
   {
+    orderId: '42453',
     customerId: 4,
     image: product4,
     name: 'Butter',
@@ -154,6 +168,7 @@ export const orderList: OrderData[] = [
     totalPrice: 'R25.00',
   },
   {
+    orderId: '42454',
     customerId: 4,
     image: product2,
     name: 'Bread',
@@ -164,6 +179,7 @@ export const orderList: OrderData[] = [
     totalPrice: 'R30.00',
   },
   {
+    orderId: '42455',
     customerId: 4,
     image: product1,
     name: 'Milk',
@@ -174,6 +190,7 @@ export const orderList: OrderData[] = [
     totalPrice: 'R20.00',
   },
   {
+    orderId: '42456',
     customerId: 4,
     image: product3,
     name: 'Eggs',
