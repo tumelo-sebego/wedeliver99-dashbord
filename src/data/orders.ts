@@ -10,10 +10,10 @@ export interface OrderData {
 }
 
 // Example product images (replace with your actual image imports if available)
-import product1 from 'assets/products/product1.png';
-import product2 from 'assets/products/product2.png';
-import product3 from 'assets/products/product3.png';
-import product4 from 'assets/products/product4.png';
+import product1 from 'assets/top-selling-products/laptop.jpg';
+import product2 from 'assets/top-selling-products/iphone12.png';
+import product3 from 'assets/top-selling-products/nikeV22.jpg';
+import product4 from 'assets/top-selling-products/watch.jpg';
 
 export const orderList: OrderData[] = [
   // Orders for Alice Johnson (id: 1)
