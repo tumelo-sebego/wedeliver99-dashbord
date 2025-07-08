@@ -1,7 +1,6 @@
 import { ChangeEvent, ReactElement, useMemo, useState } from 'react';
 import {
   Avatar,
-  Button,
   Divider,
   InputAdornment,
   LinearProgress,
@@ -88,21 +87,7 @@ const CustomersList = (): ReactElement => {
       boxShadow={(theme) => theme.shadows[4]}
       height={1}
     >
-      <Stack
-        direction={{ sm: 'row' }}
-        justifyContent="space-between"
-        alignItems="center"
-        padding={3.75}
-        gap={3.75}
-      >
-        <Typography variant="h5" color="text.primary">
-          Customers
-        </Typography>
-        <Button variant="contained" color="primary">
-          Add Customer
-        </Button>
-      </Stack>
-      <Divider />
+     
       <Stack height={1}>
         <DataGrid
           apiRef={apiRef}
