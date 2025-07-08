@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { Card, Stack, Typography, Chip, Divider, Box, Table, TableHead, TableRow, TableCell, TableBody, Avatar } from '@mui/material';
 import { customerList } from 'data/customers-list';
+import { orderList } from 'data/orders'; // <-- import the new order list
 
 const CustomerDetailsPage = () => {
   const id = new URLSearchParams(useLocation().search).get('id');
@@ -8,9 +9,8 @@ const CustomerDetailsPage = () => {
 
   if (!customer) return <div>Customer not found</div>;
 
-  // Example: customer.orders is an array of order objects
-  // Each order: { image, name, unit, price, orderDate, totalUnits, totalPrice }
-  const orders = customer.orders || [];
+  // Get orders for this customer
+  const orders = orderList.filter(order => String(order.customerId) === String(customer.id));
 
   return (
     <Card
