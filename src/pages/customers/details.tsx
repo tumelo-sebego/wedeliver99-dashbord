@@ -86,6 +86,7 @@ const CustomerDetailsPage = () => {
         <Table>
           <TableHead>
             <TableRow>
+              <TableCell>Order ID</TableCell>
               <TableCell>Product Image</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Unit</TableCell>
@@ -98,13 +99,14 @@ const CustomerDetailsPage = () => {
           <TableBody>
             {orders.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={7} align="center">
+                <TableCell colSpan={8} align="center">
                   No orders found.
                 </TableCell>
               </TableRow>
             ) : (
               orders.map((order, idx) => (
-                <TableRow key={idx}>
+                <TableRow key={order.orderId}>
+                  <TableCell>{order.orderId}</TableCell>
                   <TableCell>
                     <Avatar
                       src={order.image}
