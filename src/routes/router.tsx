@@ -33,6 +33,7 @@ const Sales = lazy(async () => {
 });
 
 // const ProductDetailsPage = lazy(async () => import('pages/products/[id]'));
+
 const Products = lazy(async () => import('pages/products'));
 const Orders = lazy(async () => import('pages/orders'));
 const Customers = lazy(async () => import('pages/customers'));
@@ -54,6 +55,16 @@ const routes: RouteObject[] = [
     children: [
       {
         path: '/', // Changed to root path
+        element: (
+          <AuthLayout>
+            <Suspense fallback={<PageLoader />}>
+              <Login />
+            </Suspense>
+          </AuthLayout>
+        ),
+      },
+      {
+        path: '/sales',
         element: (
           <MainLayout>
             <Suspense fallback={<PageLoader />}>

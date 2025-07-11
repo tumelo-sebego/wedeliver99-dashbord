@@ -1,4 +1,5 @@
 import { ReactElement, Suspense, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Button,
   FormControl,
@@ -18,8 +19,14 @@ import Image from 'components/base/Image';
 
 const Login = (): ReactElement => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleClickShowPassword = () => setShowPassword(!showPassword);
+
+  const handleLogin = () => {
+    // In a real application, you would have authentication logic here
+    navigate('/sales');
+  };
 
   return (
     <Stack
@@ -93,7 +100,7 @@ const Login = (): ReactElement => {
               Forget password
             </Link>
           </Typography>
-          <Button variant="contained" fullWidth>
+          <Button variant="contained" fullWidth onClick={handleLogin}>
             Log in
           </Button>
           <Typography variant="body2" color="text.secondary">
