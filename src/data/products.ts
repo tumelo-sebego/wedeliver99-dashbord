@@ -1,9 +1,9 @@
 import relaxingChair from 'assets/top-selling-products/relaxingChair.jpg';
 import instaxCamera from 'assets/top-selling-products/instaxCamera.jpg';
-import nikeV22 from 'assets/top-selling-products/nikeV22.jpg';
+// import nikeV22 from 'assets/top-selling-products/nikeV22.jpg';
 import laptop from 'assets/top-selling-products/laptop.jpg';
 import watch from 'assets/top-selling-products/watch.jpg';
-
+var nikeV22 = 'https://www.shoprite.co.za/medias/10216662EA-checkers300Wx300H?context=bWFzdGVyfGltYWdlc3w5OTkxOHxpbWFnZS9wbmd8aW1hZ2VzL2g0ZS9oMTEvMTAxNDM3NjM3MjYzNjYucG5nfDE1ODg0NGM2YjM0YzRhMmZkOTdlMmQyMzNkZGYxNzczMDZlZDQ4YTA1YjhjZjFhNThmZmJhYTRlMDUyMjU2ODc'
 export interface DataRow {
   id: number;
   product: {

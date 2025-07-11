@@ -39,17 +39,30 @@ const navItems: NavItem[] = [
   {
     title: 'Customers',
     icon: 'mdi:account-group',
-    path: '/customers'
+    path: '/customers',
+    active: false,
+    collapsible: false
   },
   {
     title: 'Orders',
     icon: 'mdi:clipboard-text',
-    path: '/orders'
+    path: '/orders',
+    active: false,
+    collapsible: false
   },
   {
     title: 'Drivers',
     icon: 'mdi:truck-delivery',
-    path: '/drivers'
+    path: '/drivers',
+    active: false,
+    collapsible: false
+  },
+  {
+    title: 'Stores',
+    icon: 'mdi:store',
+    path: '/stores',
+    active: false,
+    collapsible: false
   },
   {
     title: 'Authentication',
